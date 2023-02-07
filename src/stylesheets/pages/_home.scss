@@ -3,4 +3,39 @@
 // -----------------------------------------------------------------------------
 
 /// Load custom modules
-@use "../abstracts/" as a;
+@use '../abstracts/' as a;
+
+.bookself_book {
+  // width: 40%;
+  display: grid;
+  grid-template-columns: 1fr 3fr 1fr;
+
+  .bookself_book_icon {
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+  }
+
+  .bookself_book_read {
+    background-image: url('/circle.svg');
+  }
+
+  .bookself_book_info {
+    display: flex;
+    flex-direction: column;
+
+    &_genres {
+      & > ul {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        list-style: none;
+        gap: 1rem;
+      }
+    }
+  }
+
+  .bookself_book_delete {
+    background-image: url('/delete.svg');
+  }
+}
