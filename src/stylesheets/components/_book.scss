@@ -1,0 +1,101 @@
+/// Load custom modules
+@use '../abstracts' as a;
+@use '../themes' as t;
+
+.book {
+  width: 52rem;
+  display: grid;
+  grid-template-columns: 0.875rem repeat(5, 8.75rem) 0.875rem;
+  grid-template-rows: 0.875rem 8.75rem 0.875rem;
+
+  .book__label {
+    background-color: a.theme-color('foreground');
+    border-radius: 5.25rem a.$border-radius a.$border-radius 5.25rem;
+    grid-column: 1 / 5;
+    grid-row: 1 / -1;
+    box-shadow: t.$box-shadow;
+  }
+
+  .book__button-status {
+    width: 90%;
+    height: 90%;
+    justify-self: center;
+    align-self: center;
+    grid-column: 2 / 3;
+    grid-row: 2 / 3;
+    background-color: a.theme-color('foreground');
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+
+    & {
+      &--not-read {
+        background-image: url('./circle.svg');
+      }
+
+      &--is-read {
+        background-image: url('./read.svg');
+      }
+    }
+  }
+
+  .book__main {
+    grid-column: 3 / 7;
+    grid-row: 2 / 3;
+    display: grid;
+    box-shadow: t.$box-shadow;
+    background-color: a.theme-color('foreground');
+    grid-template-columns: 2fr 1fr;
+    border-radius: a.$border-radius 6rem 6rem a.$border-radius;
+
+    &__info {
+      padding: 0.875rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+
+      &__title {
+        h3 {
+          @include a.text-setting(600);
+        }
+      }
+
+      &__author {
+        h4 {
+          @include a.text-setting(400);
+        }
+      }
+
+      &__pages {
+        @include a.text-setting(300);
+      }
+
+      &__genres {
+        @include a.text-setting(300);
+
+        & > ul {
+          display: flex;
+          flex-direction: row;
+          flex-wrap: wrap;
+          list-style: none;
+          column-gap: 0.875rem;
+        }
+      }
+    }
+  }
+
+  &__button-delete {
+    width: 66%;
+    height: 66%;
+    justify-self: center;
+    align-self: center;
+    grid-column: 6 / 7;
+    grid-row: 2 / 3;
+    background-image: url('./delete.svg');
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+
+    background-color: a.theme-color('foreground');
+  }
+}

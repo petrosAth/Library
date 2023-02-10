@@ -4,7 +4,7 @@
 // -----------------------------------------------------------------------------
 
 /// Load Sass built-in modules
-@use "sass:color";
+@use 'sass:color';
 
 /// Theme colors
 /// Primary color
@@ -44,53 +44,53 @@ $color-success: hsl(157, 91%, 47%);
 /// Colors' table
 /// @type table
 $theme-colors: (
-  "primary": (
-    "light": lighten($color-primary, 5),
-    "base": $color-primary,
-    "dark": darken($color-primary, 5),
-    "disabled": color.adjust($color-primary, $alpha: -0.65),
+  'primary': (
+    'light': lighten($color-primary, 5),
+    'base': $color-primary,
+    'dark': darken($color-primary, 5),
+    'disabled': color.adjust($color-primary, $alpha: -0.65),
   ),
-  "accent": (
-    "light": lighten($color-accent, 5),
-    "base": $color-accent,
-    "dark": darken($color-accent, 5),
-    "disabled": color.adjust($color-accent, $alpha: -0.5),
+  'accent': (
+    'light': lighten($color-accent, 5),
+    'base': $color-accent,
+    'dark': darken($color-accent, 5),
+    'disabled': color.adjust($color-accent, $alpha: -0.5),
   ),
-  "light": (
-    "light": lighten($color-text-light, 5),
-    "base": $color-text-light,
-    "dark": darken($color-text-light, 5),
-    "disabled": color.adjust($color-text-light, $alpha: -0.5),
+  'light': (
+    'light': lighten($color-text-light, 5),
+    'base': $color-text-light,
+    'dark': darken($color-text-light, 5),
+    'disabled': color.adjust($color-text-light, $alpha: -0.5),
   ),
-  "dark": (
-    "light": lighten($color-text-dark, 5),
-    "base": $color-text-dark,
-    "dark": darken($color-text-dark, 20),
-    "disabled": color.adjust($color-text-dark, $alpha: -0.5),
+  'dark': (
+    'light': lighten($color-text-dark, 5),
+    'base': $color-text-dark,
+    'dark': darken($color-text-dark, 20),
+    'disabled': color.adjust($color-text-dark, $alpha: -0.5),
   ),
-  "foreground": (
-    "light": lighten($color-foreground, 5),
-    "base": $color-foreground,
-    "dark": darken($color-foreground, 5),
-    "disabled": color.adjust($color-foreground, $alpha: -0.5),
+  'foreground': (
+    'light': lighten($color-foreground, 5),
+    'base': $color-foreground,
+    'dark': darken($color-foreground, 5),
+    'disabled': color.adjust($color-foreground, $alpha: -0.5),
   ),
-  "background": (
-    "light": lighten($color-background, 5),
-    "base": $color-background,
-    "dark": darken($color-background, 5),
-    "disabled": color.adjust($color-background, $alpha: -0.5),
+  'background': (
+    'light': lighten($color-background, 5),
+    'base': $color-background,
+    'dark': darken($color-background, 5),
+    'disabled': color.adjust($color-background, $alpha: -0.5),
   ),
-  "error": (
-    "light": lighten($color-error, 5),
-    "base": $color-error,
-    "dark": darken($color-error, 5),
-    "disabled": color.adjust($color-error, $alpha: -0.5),
+  'error': (
+    'light': lighten($color-error, 5),
+    'base': $color-error,
+    'dark': darken($color-error, 5),
+    'disabled': color.adjust($color-error, $alpha: -0.5),
   ),
-  "success": (
-    "light": lighten($color-success, 5),
-    "base": $color-success,
-    "dark": darken($color-success, 5),
-    "disabled": color.adjust($color-success, $alpha: -0.5),
+  'success': (
+    'light': lighten($color-success, 5),
+    'base': $color-success,
+    'dark': darken($color-success, 5),
+    'disabled': color.adjust($color-success, $alpha: -0.5),
   ),
 );
 
@@ -98,5 +98,4 @@ $theme-colors: (
 
 /// Shadow
 /// @type Function
-$box-shadow: 0.125rem 0.125rem 0.375rem
-  color.adjust($color-background, $lightness: -15%, $alpha: -0.65);
+$box-shadow: 0.125rem 0.125rem 0.375rem color.adjust($color-background, $lightness: -15%, $alpha: -0.1);

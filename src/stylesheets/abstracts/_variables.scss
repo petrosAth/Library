@@ -3,22 +3,20 @@
 // -----------------------------------------------------------------------------
 
 /// Load Sass built-in modules
-@use "sass:color";
+@use 'sass:color';
 
 /// Regular font family
 /// @type List
-$font-stack-text: "Roboto", "Open Sans", "Helvetica Neue Light",
-  "Helvetica Neue", "Helvetica", "Arial", sans-serif !default;
+$font-stack-text: 'Roboto', 'Open Sans', 'Helvetica Neue Light', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif !default;
 
 /// Accent font family
 /// @type List
-$font-stack-accent: "Roboto Condensed", "Open Sans", "Helvetica Neue Light",
-  "Helvetica Neue", "Helvetica", "Arial", sans-serif !default;
+$font-stack-accent: 'Roboto Condensed', 'Open Sans', 'Helvetica Neue Light', 'Helvetica Neue', 'Helvetica', 'Arial',
+  sans-serif !default;
 
 /// Code (monospace) font family
 /// @type List
-$font-stack-code: "Courier New", "DejaVu Sans Mono", "Bitstream Vera Sans Mono",
-  "Monaco", monospace !default;
+$font-stack-code: 'Courier New', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', 'Monaco', monospace !default;
 
 // Text base font size
 $base-font-size: 1rem;
@@ -34,19 +32,19 @@ $text-settings: (
   ),
   800: (
     font-size: 2.5rem,
-    line-height: 2.5,
+    line-height: 1,
   ),
   700: (
     font-size: 2rem,
-    line-height: 2,
+    line-height: 1,
   ),
   600: (
     font-size: 1.5rem,
-    line-height: 1.5,
+    line-height: 1,
   ),
   500: (
     font-size: 1.25rem,
-    line-height: 1.25,
+    line-height: 1,
   ),
   400: (
     font-size: $base-font-size,
@@ -70,7 +68,7 @@ $text-settings: (
 
 /// Border radius
 /// @type Length
-$border-radius: 1em;
+$border-radius: 2em;
 
 // -----------------------------------------------------------------------------
 
@@ -84,9 +82,9 @@ $max-width: 1180px !default;
 /// @prop {String} keys - Keys are identifiers mapped to a given length
 /// @prop {Map} values - Values are actual breakpoints expressed in pixels
 $breakpoints: (
-  "small": 320px,
-  "medium": 768px,
-  "large": 1024px,
+  'small': 320px,
+  'medium': 768px,
+  'large': 1024px,
 ) !default;
 
 // -----------------------------------------------------------------------------
@@ -95,4 +93,4 @@ $breakpoints: (
 /// @type String
 /// @example scss - When using a CDN
 ///   $base-url: 'https://cdn.example.com/assets/';
-$base-url: "." !default;
+$base-url: '.' !default;
