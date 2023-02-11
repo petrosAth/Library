@@ -45,7 +45,7 @@ $color-success: hsl(157, 91%, 47%);
 /// @type table
 $theme-colors: (
   'primary': (
-    'light': lighten($color-primary, 5),
+    'light': lighten($color-primary, 10),
     'base': $color-primary,
     'dark': darken($color-primary, 5),
     'disabled': color.adjust($color-primary, $alpha: -0.65),

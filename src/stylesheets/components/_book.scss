@@ -2,9 +2,9 @@
 @use '../abstracts/' as a;
 @use '../themes/' as t;
 
-$book-info-height: a.$size-unit * 10;
-$book-info-radius: $book-info-height / 2;
-$book-label-radius: $book-info-height / 2 + a.$size-unit;
+$book-info-height: calc(a.$size-unit * 10);
+$book-info-radius: calc($book-info-height / 2);
+$book-label-radius: calc($book-info-height / 2 + a.$size-unit);
 
 .book {
   display: grid;
@@ -17,30 +17,6 @@ $book-label-radius: $book-info-height / 2 + a.$size-unit;
     grid-column: 1 / 5;
     grid-row: 1 / -1;
     box-shadow: t.$box-shadow;
-  }
-
-  .book__button-status {
-    border-radius: $book-info-radius * 0.75;
-    width: $book-info-height * 0.75;
-    height: $book-info-height * 0.75;
-    justify-self: center;
-    align-self: center;
-    grid-column: 2 / 3;
-    grid-row: 2 / 3;
-    background-color: a.theme-color('foreground');
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
-
-    & {
-      &--not-read {
-        background-image: url('./circle.svg');
-      }
-
-      &--is-read {
-        background-image: url('./read.svg');
-      }
-    }
   }
 
   .book__main {
@@ -61,6 +37,7 @@ $book-label-radius: $book-info-height / 2 + a.$size-unit;
       &__title {
         h3 {
           @include a.text-setting(600);
+          font-weight: 500;
         }
       }
 
@@ -88,19 +65,96 @@ $book-label-radius: $book-info-height / 2 + a.$size-unit;
     }
   }
 
-  &__button-delete {
-    border-radius: $book-info-radius * 0.5;
-    width: $book-info-height * 0.5;
-    height: $book-info-height * 0.5;
+  &__button {
+    border-radius: calc($book-info-radius * 0.75);
+    width: calc($book-info-height * 0.75);
+    height: calc($book-info-height * 0.75);
     justify-self: center;
     align-self: center;
-    grid-column: 6 / 7;
+    grid-column: 2 / 3;
     grid-row: 2 / 3;
-    background-image: url('./delete.svg');
+    background-color: a.theme-color('foreground');
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
 
-    background-color: a.theme-color('foreground');
+    &:focus-visible {
+      box-shadow: t.$box-shadow;
+      outline: none;
+    }
+    &:hover:not(:disabled) {
+      color: a.theme-color('light', 'base');
+      box-shadow: t.$box-shadow;
+    }
+    &:focus {
+      border-color: a.theme-color('primary');
+      outline: 0.0675rem solid a.theme-color('primary');
+    }
+    &:active:not(:disabled) {
+      background-color: a.theme-color('primary', 'dark');
+      border-color: a.theme-color('primary', 'dark');
+      box-shadow: none;
+      outline: none;
+    }
+
+    &-status {
+      & {
+        &--not-read,
+        &--is-read {
+          &:focus-visible {
+            background-image: url('./circle-white.svg');
+            background-color: a.theme-color('success', 'light');
+            border-color: a.theme-color('success', 'light');
+          }
+          &:hover:not(:disabled) {
+            background-image: url('./circle-white.svg');
+            background-color: a.theme-color('success');
+            border-color: a.theme-color('success');
+          }
+        }
+      }
+      &--not-read {
+        background-image: url('./circle-green.svg');
+        &:focus-visible,
+        &:hover:not(:disabled) {
+          background-image: url('./circle-white.svg');
+        }
+      }
+
+      &--is-read {
+        background-image: url('./read-green.svg');
+        &:focus-visible,
+        &:hover:not(:disabled) {
+          background-image: url('./read-white.svg');
+        }
+      }
+    }
+
+    &-delete {
+      border-radius: calc($book-info-radius * 0.5);
+      width: calc($book-info-height * 0.5);
+      height: calc($book-info-height * 0.5);
+      justify-self: center;
+      align-self: center;
+      grid-column: 6 / 7;
+      grid-row: 2 / 3;
+      background-image: url('./delete-red.svg');
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+
+      background-color: a.theme-color('foreground');
+
+      &:focus-visible {
+        background-image: url('./delete-white.svg');
+        background-color: a.theme-color('error', 'light');
+        border-color: a.theme-color('error', 'light');
+      }
+      &:hover:not(:disabled) {
+        background-image: url('./delete-white.svg');
+        background-color: a.theme-color('error');
+        border-color: a.theme-color('error');
+      }
+    }
   }
 }

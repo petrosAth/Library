@@ -7,20 +7,5 @@
 .button {
   border: 0;
   cursor: pointer;
-
-  &:focus-visible {
-    box-shadow: none;
-    outline: none;
-    border-color: a.theme-color('primary', 'light');
-    background-color: a.theme-color('primary', 'light');
-  }
-  &:hover:not(:disabled) {
-    background-color: a.theme-color('primary', 'dark');
-    border-color: a.theme-color('primary', 'dark');
-  }
-  &:active:not(:disabled) {
-    background-color: a.theme-color('primary', 'light');
-    border-color: a.theme-color('primary', 'light');
-    outline: none;
-  }
+  background-color: a.theme-color('foreground');
 }

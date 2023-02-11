@@ -5,12 +5,136 @@
 @use '../abstracts/' as a;
 @use '../themes/' as t;
 
-.add-button {
-  @include a.text-setting(700);
+.add-dialog {
+  position: relative;
+  top: 40%;
+  transform: translateY(-60%);
+  margin: 0 auto;
+  border: none;
+  border-radius: a.$border-radius;
+
+  .add-dialog__form {
+    background-color: a.theme-color('foreground');
+    max-width: 50ch;
+    padding: 2.5rem;
+    border-radius: a.$border-radius;
+    box-shadow: t.$box-shadow;
+
+    &__title {
+      @include a.text-setting(600);
+      font-family: 'Roboto Condensed';
+      font-weight: 700;
+      padding-block-end: 1rem;
+      text-align: center;
+    }
+
+    &__data {
+      padding-block-end: 1.5rem;
+
+      > * {
+        padding-block-end: 0.5rem;
+      }
+
+      label {
+        text-transform: uppercase;
+        @include a.text-setting(300);
+        font-weight: 500;
+        letter-spacing: 0.075rem;
+      }
+
+      input {
+        width: 100%;
+        border: 0.075rem solid a.theme-color('background', 'dark');
+        border-radius: a.$border-radius;
+        box-shadow: t.$box-shadow;
+        padding-inline: 0.75rem;
+        padding-block: 0.25rem;
+
+        &:focus,
+        &:focus-visible {
+          outline: none;
+          border-color: a.theme-color('accent');
+          box-shadow: t.$box-shadow;
+        }
+      }
+    }
+
+    &__button {
+      @include a.text-setting(500);
+      font-family: 'Roboto Condensed';
+      font-weight: 700;
+      margin-inline: auto;
+      display: block;
+      padding: 0.875rem 1.75rem;
+      border-radius: calc(a.$border-radius / 1.5);
+      color: a.theme-color('light');
+      background-color: a.theme-color('primary');
+      box-shadow: t.$box-shadow;
+
+      &:focus-visible {
+        color: a.theme-color('dark');
+        background-color: a.theme-color('foreground');
+        border-color: a.theme-color('foreground');
+        box-shadow: t.$box-shadow;
+        outline: none;
+      }
+      &:hover:not(:disabled) {
+        color: a.theme-color('dark');
+        background-color: a.theme-color('accent');
+        border-color: a.theme-color('foreground');
+        box-shadow: t.$box-shadow;
+      }
+      &:focus {
+        border-color: a.theme-color('accent');
+        outline: 0.0675rem solid a.theme-color('accent');
+      }
+      &:active:not(:disabled) {
+        background-color: a.theme-color('accent', 'dark');
+        border-color: a.theme-color('accent', 'dark');
+        box-shadow: none;
+        outline: none;
+      }
+    }
+  }
+
+  &::backdrop {
+    background: a.theme-color('dark', 'disabled');
+  }
+}
+
+.button.add-button {
+  @include a.text-setting(600);
+  font-family: 'Roboto Condensed';
+  font-weight: 700;
   margin-inline: auto;
   display: block;
   padding: 1.5rem 3rem;
-  border-radius: a.$border-radius / 2;
-  background-color: a.theme-color('foreground');
+  border-radius: calc(a.$border-radius / 1.5);
+  color: a.theme-color('light');
+  background-color: a.theme-color('primary');
   box-shadow: t.$box-shadow;
+
+  &:focus-visible {
+    color: a.theme-color('dark');
+    background-color: a.theme-color('foreground');
+    border-color: a.theme-color('foreground');
+    box-shadow: t.$box-shadow;
+    outline: none;
+  }
+  &:hover:not(:disabled) {
+    color: a.theme-color('dark');
+    background-color: a.theme-color('accent');
+    border-color: a.theme-color('foreground');
+    box-shadow: t.$box-shadow;
+  }
+  &:focus {
+    border-color: a.theme-color('accent');
+    outline: 0.0675rem solid a.theme-color('accent');
+  }
+  &:active:not(:disabled) {
+    background-color: a.theme-color('accent', 'dark');
+    border-color: a.theme-color('accent', 'dark');
+    box-shadow: none;
+    outline: none;
+  }
 }
