@@ -1,0 +1,14 @@
+// -----------------------------------------------------------------------------
+// This file contains all styles related to the bookself component.
+// -----------------------------------------------------------------------------
+
+/// Load custom modules
+@use '../abstracts/' as a;
+
+.bookself {
+  padding-block: 2rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(a.$size-unit + a.$size-unit * 10 * 5 + a.$size-unit, 1fr));
+  justify-items: center;
+  gap: 1rem;
+}

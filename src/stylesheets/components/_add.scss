@@ -1,14 +1,16 @@
 // -----------------------------------------------------------------------------
-// This file contains all styles related to the header of the site/application.
+// This file contains all styles related to the add book button component.
 // -----------------------------------------------------------------------------
 
 @use '../abstracts/' as a;
 @use '../themes/' as t;
 
-.header {
-  display: flex;
-  align-items: center;
+.add-button {
+  @include a.text-setting(700);
+  margin-inline: auto;
+  display: block;
+  padding: 1.5rem 3rem;
+  border-radius: a.$border-radius / 2;
   background-color: a.theme-color('foreground');
   box-shadow: t.$box-shadow;
-  padding: 1rem 2rem;
 }

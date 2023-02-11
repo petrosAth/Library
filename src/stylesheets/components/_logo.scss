@@ -1,0 +1,29 @@
+// -----------------------------------------------------------------------------
+// This file contains all styles related to the logo component.
+// -----------------------------------------------------------------------------
+
+@use '../abstracts/' as a;
+
+.logo {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 1rem;
+
+  .logo_icon {
+    background-image: url('./logo.svg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 3.5rem;
+    height: 3.5rem;
+  }
+
+  .logo_text {
+    h1 {
+      font-family: 'Roboto Condensed';
+      @include a.text-setting(800);
+      margin: 0;
+    }
+  }
+}

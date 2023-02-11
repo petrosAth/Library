@@ -44,7 +44,7 @@ $text-settings: (
   ),
   500: (
     font-size: 1.25rem,
-    line-height: 1,
+    line-height: 1.25,
   ),
   400: (
     font-size: $base-font-size,
@@ -66,9 +66,15 @@ $text-settings: (
 
 // -----------------------------------------------------------------------------
 
+/// Base size unit
+/// @type Length
+$size-unit: 0.875rem;
+
+// -----------------------------------------------------------------------------
+
 /// Border radius
 /// @type Length
-$border-radius: 2em;
+$border-radius: 1em;
 
 // -----------------------------------------------------------------------------
 

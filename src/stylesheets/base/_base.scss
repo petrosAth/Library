@@ -3,7 +3,7 @@
 // -----------------------------------------------------------------------------
 
 /// Load custom modules
-@use "../abstracts/" as a;
+@use '../abstracts/' as a;
 
 /**
  * Set up a decent box model on the root element
@@ -45,7 +45,7 @@ body {
  * Basic styles for links
  */
 a {
-  color: a.theme-color("primary");
+  color: a.theme-color('primary');
   text-decoration: none;
 
   @include a.on-event {
