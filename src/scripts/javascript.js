@@ -34,7 +34,7 @@ function CreateBookHTML(index, title, author, pages, is_read) {
   ]);
   const bookAuthor = createBookElement('div', ['book__main__info__author'], author);
   const bookTitle = createBookElement('div', ['book__main__info__title'], title);
-  const bookPages = createBookElement('div', ['book__main__info__pages'], pages);
+  const bookPages = createBookElement('div', ['book__main__info__pages'], pages + ' pages');
 
   const bookInfo = createBookElement('div', ['book__main__info']);
   appendChild(bookInfo, [bookAuthor, bookTitle, bookPages]);
