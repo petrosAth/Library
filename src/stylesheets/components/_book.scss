@@ -35,18 +35,14 @@ $book-label-radius: calc($book-info-height / 2 + a.$size-unit);
       justify-content: space-between;
 
       &__author {
-        h4 {
-          @include a.text-setting(500);
-          font-weight: 300;
-          line-height: 1;
-        }
+        @include a.text-setting(500);
+        font-weight: 300;
+        line-height: 1;
       }
 
       &__title {
-        h3 {
-          @include a.text-setting(600);
-          line-height: 1;
-        }
+        @include a.text-setting(600);
+        line-height: 1;
       }
 
       &__pages {
