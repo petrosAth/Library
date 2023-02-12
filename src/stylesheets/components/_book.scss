@@ -12,11 +12,17 @@ $book-label-radius: calc($book-info-height / 2 + a.$size-unit);
   grid-template-rows: a.$size-unit $book-info-height a.$size-unit;
 
   .book__label {
-    background-color: a.theme-color('foreground');
     border-radius: $book-label-radius a.$border-radius a.$border-radius $book-label-radius;
     grid-column: 1 / 5;
     grid-row: 1 / -1;
     box-shadow: t.$box-shadow;
+
+    &--not-read {
+      background-color: a.theme-color('foreground');
+    }
+    &--is-read {
+      background-color: a.theme-color('success');
+    }
   }
 
   .book__main {
