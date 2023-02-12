@@ -42,7 +42,7 @@
         letter-spacing: 0.075rem;
       }
 
-      input {
+      input:not([type='checkbox']) {
         width: 100%;
         border: 0.075rem solid a.theme-color('background', 'dark');
         border-radius: a.$border-radius;
@@ -55,6 +55,15 @@
           outline: none;
           border-color: a.theme-color('accent');
           box-shadow: t.$box-shadow;
+        }
+      }
+
+      &__read {
+        margin-top: 1rem;
+
+        input {
+          display: inline-block;
+          margin-right: 0.5rem;
         }
       }
     }
