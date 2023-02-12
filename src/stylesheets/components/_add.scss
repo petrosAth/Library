@@ -72,25 +72,20 @@
       box-shadow: t.$box-shadow;
 
       &:focus-visible {
-        color: a.theme-color('dark');
-        background-color: a.theme-color('foreground');
-        border-color: a.theme-color('foreground');
+        background-color: a.theme-color('primary', 'light');
         box-shadow: t.$box-shadow;
-        outline: none;
+        outline: 0.0675rem solid a.theme-color('accent');
       }
       &:hover:not(:disabled) {
-        color: a.theme-color('dark');
-        background-color: a.theme-color('accent');
-        border-color: a.theme-color('foreground');
+        background-color: a.theme-color('primary', 'dark');
         box-shadow: t.$box-shadow;
       }
       &:focus {
-        border-color: a.theme-color('accent');
+        background-color: a.theme-color('primary', 'light');
         outline: 0.0675rem solid a.theme-color('accent');
       }
       &:active:not(:disabled) {
-        background-color: a.theme-color('accent', 'dark');
-        border-color: a.theme-color('accent', 'dark');
+        background-color: a.theme-color('primary', 'light');
         box-shadow: none;
         outline: none;
       }
@@ -115,25 +110,20 @@
   box-shadow: t.$box-shadow;
 
   &:focus-visible {
-    color: a.theme-color('dark');
-    background-color: a.theme-color('foreground');
-    border-color: a.theme-color('foreground');
+    background-color: a.theme-color('primary', 'light');
     box-shadow: t.$box-shadow;
-    outline: none;
+    outline: 0.0675rem solid a.theme-color('accent');
   }
   &:hover:not(:disabled) {
-    color: a.theme-color('dark');
-    background-color: a.theme-color('accent');
-    border-color: a.theme-color('foreground');
+    background-color: a.theme-color('primary', 'dark');
     box-shadow: t.$box-shadow;
   }
   &:focus {
-    border-color: a.theme-color('accent');
+    background-color: a.theme-color('primary', 'light');
     outline: 0.0675rem solid a.theme-color('accent');
   }
   &:active:not(:disabled) {
-    background-color: a.theme-color('accent', 'dark');
-    border-color: a.theme-color('accent', 'dark');
+    background-color: a.theme-color('primary', 'light');
     box-shadow: none;
     outline: none;
   }

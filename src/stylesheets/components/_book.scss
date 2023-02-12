@@ -77,56 +77,50 @@ $book-label-radius: calc($book-info-height / 2 + a.$size-unit);
     align-self: center;
     grid-column: 2 / 3;
     grid-row: 2 / 3;
-    background-color: a.theme-color('foreground');
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
 
     &:focus-visible {
+      background-color: a.theme-color('foreground', 'light');
+      outline: 0.0675rem solid a.theme-color('accent');
       box-shadow: t.$box-shadow;
-      outline: none;
     }
     &:hover:not(:disabled) {
-      color: a.theme-color('light', 'base');
+      background-color: a.theme-color('foreground', 'dark');
       box-shadow: t.$box-shadow;
     }
     &:focus {
-      border-color: a.theme-color('primary');
-      outline: 0.0675rem solid a.theme-color('primary');
+      background-color: a.theme-color('foreground', 'light');
+      outline: 0.0675rem solid a.theme-color('accent');
     }
     &:active:not(:disabled) {
-      background-color: a.theme-color('primary', 'dark');
-      border-color: a.theme-color('primary', 'dark');
+      background-color: a.theme-color('foreground', 'light');
       box-shadow: none;
       outline: none;
     }
   }
 
   &__button-status {
-    &:focus-visible {
-      background-image: url('./circle-white.svg');
-      background-color: a.theme-color('success', 'light');
-      border-color: a.theme-color('success', 'light');
-    }
-    &:hover:not(:disabled) {
-      background-image: url('./circle-white.svg');
-      background-color: a.theme-color('success');
-      border-color: a.theme-color('success');
-    }
-
     &--not-read {
       background-image: url('./circle-green.svg');
-      &:focus-visible,
-      &:hover:not(:disabled) {
-        background-image: url('./circle-white.svg');
-      }
     }
 
     &--is-read {
-      background-image: url('./read-green.svg');
-      &:focus-visible,
+      background-image: url('./read-white.svg');
+      background-color: a.theme-color('success');
       &:hover:not(:disabled) {
-        background-image: url('./read-white.svg');
+        background-color: a.theme-color('success', 'dark');
+        box-shadow: t.$box-shadow;
+      }
+      &:focus {
+        background-color: a.theme-color('success', 'light');
+        outline: 0.0675rem solid a.theme-color('accent');
+      }
+      &:active:not(:disabled) {
+        background-color: a.theme-color('success', 'light');
+        box-shadow: none;
+        outline: none;
       }
     }
   }
@@ -135,26 +129,8 @@ $book-label-radius: calc($book-info-height / 2 + a.$size-unit);
     border-radius: calc($book-info-radius * 0.5);
     width: calc($book-info-height * 0.5);
     height: calc($book-info-height * 0.5);
-    justify-self: center;
-    align-self: center;
     grid-column: 6 / 7;
     grid-row: 2 / 3;
     background-image: url('./delete-red.svg');
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
-
-    background-color: a.theme-color('foreground');
-
-    &:focus-visible {
-      background-image: url('./delete-white.svg');
-      background-color: a.theme-color('error', 'light');
-      border-color: a.theme-color('error', 'light');
-    }
-    &:hover:not(:disabled) {
-      background-image: url('./delete-white.svg');
-      background-color: a.theme-color('error');
-      border-color: a.theme-color('error');
-    }
   }
 }
