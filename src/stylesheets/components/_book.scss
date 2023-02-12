@@ -25,7 +25,7 @@ $book-label-radius: calc($book-info-height / 2 + a.$size-unit);
     display: grid;
     box-shadow: t.$box-shadow;
     background-color: a.theme-color('foreground');
-    grid-template-columns: 2fr 1fr;
+    grid-template-columns: 3fr 1fr;
     border-radius: a.$border-radius $book-label-radius $book-label-radius a.$border-radius;
 
     &__info {
@@ -34,22 +34,25 @@ $book-label-radius: calc($book-info-height / 2 + a.$size-unit);
       flex-direction: column;
       justify-content: space-between;
 
-      &__title {
-        h3 {
-          @include a.text-setting(600);
-        }
-      }
-
       &__author {
         h4 {
           @include a.text-setting(500);
           font-weight: 300;
+          line-height: 1;
+        }
+      }
+
+      &__title {
+        h3 {
+          @include a.text-setting(600);
+          line-height: 1;
         }
       }
 
       &__pages {
         @include a.text-setting(300);
         font-weight: 500;
+        line-height: 1;
       }
 
       &__genres {
@@ -97,65 +100,61 @@ $book-label-radius: calc($book-info-height / 2 + a.$size-unit);
       box-shadow: none;
       outline: none;
     }
+  }
 
-    &-status {
-      & {
-        &--not-read,
-        &--is-read {
-          &:focus-visible {
-            background-image: url('./circle-white.svg');
-            background-color: a.theme-color('success', 'light');
-            border-color: a.theme-color('success', 'light');
-          }
-          &:hover:not(:disabled) {
-            background-image: url('./circle-white.svg');
-            background-color: a.theme-color('success');
-            border-color: a.theme-color('success');
-          }
-        }
-      }
-      &--not-read {
-        background-image: url('./circle-green.svg');
-        &:focus-visible,
-        &:hover:not(:disabled) {
-          background-image: url('./circle-white.svg');
-        }
-      }
+  &__button-status {
+    &:focus-visible {
+      background-image: url('./circle-white.svg');
+      background-color: a.theme-color('success', 'light');
+      border-color: a.theme-color('success', 'light');
+    }
+    &:hover:not(:disabled) {
+      background-image: url('./circle-white.svg');
+      background-color: a.theme-color('success');
+      border-color: a.theme-color('success');
+    }
 
-      &--is-read {
-        background-image: url('./read-green.svg');
-        &:focus-visible,
-        &:hover:not(:disabled) {
-          background-image: url('./read-white.svg');
-        }
+    &--not-read {
+      background-image: url('./circle-green.svg');
+      &:focus-visible,
+      &:hover:not(:disabled) {
+        background-image: url('./circle-white.svg');
       }
     }
 
-    &-delete {
-      border-radius: calc($book-info-radius * 0.5);
-      width: calc($book-info-height * 0.5);
-      height: calc($book-info-height * 0.5);
-      justify-self: center;
-      align-self: center;
-      grid-column: 6 / 7;
-      grid-row: 2 / 3;
-      background-image: url('./delete-red.svg');
-      background-size: contain;
-      background-repeat: no-repeat;
-      background-position: center;
-
-      background-color: a.theme-color('foreground');
-
-      &:focus-visible {
-        background-image: url('./delete-white.svg');
-        background-color: a.theme-color('error', 'light');
-        border-color: a.theme-color('error', 'light');
-      }
+    &--is-read {
+      background-image: url('./read-green.svg');
+      &:focus-visible,
       &:hover:not(:disabled) {
-        background-image: url('./delete-white.svg');
-        background-color: a.theme-color('error');
-        border-color: a.theme-color('error');
+        background-image: url('./read-white.svg');
       }
+    }
+  }
+
+  &__button-delete {
+    border-radius: calc($book-info-radius * 0.5);
+    width: calc($book-info-height * 0.5);
+    height: calc($book-info-height * 0.5);
+    justify-self: center;
+    align-self: center;
+    grid-column: 6 / 7;
+    grid-row: 2 / 3;
+    background-image: url('./delete-red.svg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+
+    background-color: a.theme-color('foreground');
+
+    &:focus-visible {
+      background-image: url('./delete-white.svg');
+      background-color: a.theme-color('error', 'light');
+      border-color: a.theme-color('error', 'light');
+    }
+    &:hover:not(:disabled) {
+      background-image: url('./delete-white.svg');
+      background-color: a.theme-color('error');
+      border-color: a.theme-color('error');
     }
   }
 }
