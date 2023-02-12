@@ -37,7 +37,6 @@ $book-label-radius: calc($book-info-height / 2 + a.$size-unit);
       &__title {
         h3 {
           @include a.text-setting(600);
-          font-weight: 500;
         }
       }
 
