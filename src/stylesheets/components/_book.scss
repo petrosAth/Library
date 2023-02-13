@@ -8,6 +8,7 @@ $book-label-radius: calc($book-info-height / 2 + a.$size-unit);
 
 .book {
   display: grid;
+  justify-content: center;
   grid-template-columns: a.$size-unit repeat(5, $book-info-height) a.$size-unit;
   grid-template-rows: a.$size-unit $book-info-height a.$size-unit;
 

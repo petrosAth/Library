@@ -35,6 +35,16 @@ function AppendChild(element, children) {
   });
 }
 
+function RefreshBookself() {
+  let bookself = document.querySelector('.bookself');
+  bookself.innerHTML = '';
+  myLibrary.forEach((book) => {
+    if (book !== null) {
+      CreateBookElement(bookself, book);
+    }
+  });
+}
+
 function CreateButtonDeleteBook(deleteButton, bookIndex) {
   deleteButton.addEventListener('click', () => {
     myLibrary[bookIndex] = null;
@@ -46,16 +56,6 @@ function CreateButtonToggleBookStatus(statusButton, book) {
   statusButton.addEventListener('click', () => {
     book.is_read = !book.is_read;
     RefreshBookself();
-  });
-}
-
-function RefreshBookself() {
-  let bookself = document.querySelector('.bookself');
-  bookself.innerHTML = '';
-  myLibrary.forEach((book) => {
-    if (book !== null) {
-      CreateBookElement(bookself, book);
-    }
   });
 }
 
@@ -91,7 +91,7 @@ function CreateBookElement(bookself, book) {
 }
 
 function AddBookToLibrary(book) {
-  book.index = +myLibrary.length;
+  book.index = myLibrary.length;
   myLibrary.push(book);
   RefreshBookself();
 }

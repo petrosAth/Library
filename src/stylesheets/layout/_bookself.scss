@@ -9,6 +9,6 @@
   padding-block: 2rem;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(a.$size-unit + a.$size-unit * 10 * 5 + a.$size-unit, 1fr));
-  justify-items: center;
+  justify-content: center;
   gap: 1rem;
 }
