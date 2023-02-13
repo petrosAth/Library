@@ -18,11 +18,11 @@ function CreateBookChildElement(element, classes, info, index) {
     newElement.classList.add(elementClass);
   });
 
-  if (info) {
+  if (info !== undefined) {
     newElement.innerText = info;
   }
 
-  if (index) {
+  if (index !== undefined) {
     newElement.dataset.index = index;
   }
 
