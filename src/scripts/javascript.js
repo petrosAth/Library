@@ -1,4 +1,6 @@
-function createBookElement(element, classes, info, index) {
+const myLibrary = [];
+
+function CreateBookElement(element, classes, info, index) {
   const newElement = document.createElement(element);
   classes.forEach((elementClass) => {
     newElement.classList.add(elementClass);
@@ -15,43 +17,60 @@ function createBookElement(element, classes, info, index) {
   return newElement;
 }
 
-function appendChild(element, children) {
+function AppendChild(element, children) {
   children.forEach((child) => {
     element.appendChild(child);
   });
 }
 
-function CreateBookHTML(index, title, author, pages, is_read) {
-  const bookLabel = createBookElement('div', [
+function CreateButtonDeleteBook(deleteButton, bookIndex) {
+  console.log(myLibrary[bookIndex]);
+  deleteButton.addEventListener('click', () => {
+    myLibrary[bookIndex] = null;
+    console.log(myLibrary[bookIndex]);
+    RefreshBookself();
+  });
+}
+
+function RefreshBookself() {
+  let bookself = document.querySelector('.bookself');
+  bookself.innerHTML = '';
+  myLibrary.forEach((book) => {
+    if (book !== null) {
+      CreateBookHTML(bookself, book);
+    }
+  });
+}
+
+function CreateBookHTML(bookself, book) {
+  const bookLabel = CreateBookElement('div', [
     'book__label',
-    is_read ? 'book__label--is-read' : 'book__label--not-read',
+    book.is_read ? 'book__label--is-read' : 'book__label--not-read',
   ]);
-  const bookButtonStatus = createBookElement('div', [
+  const bookButtonStatus = CreateBookElement('div', [
     'button',
     'book__button',
     'book__button-status',
-    is_read ? 'book__button-status--is-read' : 'book__button-status--not-read',
+    book.is_read ? 'book__button-status--is-read' : 'book__button-status--not-read',
   ]);
-  const bookAuthor = createBookElement('div', ['book__main__info__author'], author);
-  const bookTitle = createBookElement('div', ['book__main__info__title'], title);
-  const bookPages = createBookElement('div', ['book__main__info__pages'], pages + ' pages');
+  const bookAuthor = CreateBookElement('div', ['book__main__info__author'], book.author);
+  const bookTitle = CreateBookElement('div', ['book__main__info__title'], book.title);
+  const bookPages = CreateBookElement('div', ['book__main__info__pages'], book.pages + ' pages');
 
-  const bookInfo = createBookElement('div', ['book__main__info']);
-  appendChild(bookInfo, [bookAuthor, bookTitle, bookPages]);
+  const bookInfo = CreateBookElement('div', ['book__main__info']);
+  AppendChild(bookInfo, [bookAuthor, bookTitle, bookPages]);
 
-  const bookMain = createBookElement('div', ['book__main']);
-  appendChild(bookMain, [bookInfo]);
+  const bookMain = CreateBookElement('div', ['book__main']);
+  AppendChild(bookMain, [bookInfo]);
 
-  const bookButtonDelete = createBookElement('div', ['button', 'book__button', 'book__button-delete']);
+  const bookButtonDelete = CreateBookElement('div', ['button', 'book__button', 'book__button-delete']);
+  CreateButtonDeleteBook(bookButtonDelete, book.index);
 
-  const book = createBookElement('div', ['book'], '', index);
-  appendChild(book, [bookLabel, bookButtonStatus, bookMain, bookButtonDelete]);
+  const bookElement = CreateBookElement('div', ['book'], '', book.index);
+  AppendChild(bookElement, [bookLabel, bookButtonStatus, bookMain, bookButtonDelete]);
 
-  let bookself = document.querySelector('.bookself');
-  bookself.appendChild(book);
+  bookself.appendChild(bookElement);
 }
-
-const myLibrary = [];
 
 function Book(index, title, author, pages, is_read = false) {
   this.index = index;
@@ -66,9 +85,9 @@ function Book(index, title, author, pages, is_read = false) {
 }
 
 function AddBookToLibrary(book) {
-  book.index = myLibrary.length + 1;
+  book.index = +myLibrary.length;
   myLibrary.push(book);
-  CreateBookHTML(book.index, book.title, book.author, book.pages, book.is_read);
+  RefreshBookself();
 }
 
 
@@ -79,7 +98,7 @@ openModal.addEventListener('click', () => {
   modal.showModal();
 });
 
-function addBook() {
+function AddBook() {
   const button = document.querySelector('.add-dialog__form__button');
   const formTitle = document.querySelector('#add-dialog__form__data__title');
   const formAuthor = document.querySelector('#add-dialog__form__data__author');
@@ -94,4 +113,4 @@ function addBook() {
   });
 }
 
-addBook();
+AddBook();
