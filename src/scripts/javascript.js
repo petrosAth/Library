@@ -98,22 +98,34 @@ function AddBookToLibrary(book) {
 
 function WatchAddBookForm(modal) {
   const button = document.querySelector('.add-dialog__form__button');
+  const form = document.querySelector('#add-dialog__form');
 
   button.addEventListener('click', (event) => {
     event.preventDefault();
 
-    const form = {
+    const formFields = {
       title: document.querySelector('#add-dialog__form__data__title'),
       author: document.querySelector('#add-dialog__form__data__author'),
       pages: document.querySelector('#add-dialog__form__data__pages'),
       read: document.querySelector('#add-dialog__form__data__read'),
     };
-    const book = new Book('', form.title.value, form.author.value, form.pages.value, form.read.checked);
-    AddBookToLibrary(book);
-    Object.keys(form).forEach((key) => {
-      form[key].value = '';
-    });
-    modal.close();
+
+    if (form.checkValidity()) {
+      const book = new Book(
+        '',
+        formFields.title.value,
+        formFields.author.value,
+        formFields.pages.value,
+        formFields.read.checked
+      );
+      AddBookToLibrary(book);
+      Object.keys(formFields).forEach((key) => {
+        formFields[key].value = '';
+      });
+      modal.close();
+    } else {
+      form.reportValidity();
+    }
   });
 }
 
