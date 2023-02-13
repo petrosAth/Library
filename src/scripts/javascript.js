@@ -145,3 +145,19 @@ function ControlFormModal() {
 }
 
 ControlFormModal();
+
+function CreatePlaceHolderContent() {
+  const someBooks = {
+    0: ['', 'Nineteen Eighty-Four', 'George Orwell', '328', true],
+    1: ['', 'The Little Prince', 'Antoine de Saint-Exupéry', '96', false],
+    2: ['', 'The Lord of the Rings: The Fellowship of the Ring', 'J. R. R. Tolkien', '479', true],
+    3: ['', 'The Lord of the Rings: The Two Towers', 'J. R. R. Tolkien', '415', false],
+    4: ['', 'The Lord of the Rings: The Return of the King', 'J. R. R. Tolkien', '347', false],
+  };
+
+  for (const aBook in someBooks) {
+    const newBook = new Book(...someBooks[aBook]);
+    AddBookToLibrary(newBook);
+  }
+}
+CreatePlaceHolderContent();
