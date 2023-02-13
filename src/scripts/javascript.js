@@ -1,5 +1,17 @@
 const myLibrary = [];
 
+function Book(index, title, author, pages, is_read = false) {
+  this.index = index;
+  this.title = title;
+  this.author = author;
+  this.pages = pages;
+  this.is_read = is_read;
+  this.info = function () {
+    let read = this.is_read ? 'have read it' : 'not read yet';
+    return `${title} by ${author}, ${pages} pages, ${read}`;
+  };
+}
+
 function CreateBookChildElement(element, classes, info, index) {
   const newElement = document.createElement(element);
   classes.forEach((elementClass) => {
@@ -30,6 +42,13 @@ function CreateButtonDeleteBook(deleteButton, bookIndex) {
   });
 }
 
+function CreateButtonToggleBookStatus(statusButton, book) {
+  statusButton.addEventListener('click', () => {
+    book.is_read = !book.is_read;
+    RefreshBookself();
+  });
+}
+
 function RefreshBookself() {
   let bookself = document.querySelector('.bookself');
   bookself.innerHTML = '';
@@ -51,6 +70,7 @@ function CreateBookElement(bookself, book) {
     'book__button-status',
     book.is_read ? 'book__button-status--is-read' : 'book__button-status--not-read',
   ]);
+  CreateButtonToggleBookStatus(bookButtonStatus, book);
   const bookAuthor = CreateBookChildElement('div', ['book__main__info__author'], book.author);
   const bookTitle = CreateBookChildElement('div', ['book__main__info__title'], book.title);
   const bookPages = CreateBookChildElement('div', ['book__main__info__pages'], book.pages + ' pages');
@@ -68,18 +88,6 @@ function CreateBookElement(bookself, book) {
   AppendChild(bookElement, [bookLabel, bookButtonStatus, bookMain, bookButtonDelete]);
 
   bookself.appendChild(bookElement);
-}
-
-function Book(index, title, author, pages, is_read = false) {
-  this.index = index;
-  this.title = title;
-  this.author = author;
-  this.pages = pages;
-  this.is_read = is_read;
-  this.info = function () {
-    let read = this.is_read ? 'have read it' : 'not read yet';
-    return `${title} by ${author}, ${pages} pages, ${read}`;
-  };
 }
 
 function AddBookToLibrary(book) {
