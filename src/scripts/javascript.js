@@ -88,7 +88,7 @@ function AddBookToLibrary(book) {
   RefreshBookself();
 }
 
-function SubmitButton(modal) {
+function WatchAddBookForm(modal) {
   const button = document.querySelector('.add-dialog__form__button');
 
   button.addEventListener('click', (event) => {
@@ -109,14 +109,19 @@ function SubmitButton(modal) {
   });
 }
 
-function AddBookButton() {
+function ControlFormModal() {
   const modal = document.querySelector('.add-dialog');
   const openModal = document.querySelector('.add-button');
+  const closeModal = document.querySelector('.add-dialog__form__title__close-button');
 
   openModal.addEventListener('click', () => {
     modal.showModal();
   });
-  SubmitButton(modal);
+  closeModal.addEventListener('click', () => {
+    modal.close();
+  });
+
+  WatchAddBookForm(modal);
 }
 
-AddBookButton();
+ControlFormModal();
