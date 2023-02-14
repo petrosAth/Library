@@ -3,7 +3,7 @@
 // -----------------------------------------------------------------------------
 
 /// Load custom modules
-@use '../abstracts/' as a;
+@use '../abstracts' as a;
 
 .bookself {
   padding-block: 2rem;

@@ -3,14 +3,14 @@
 // -----------------------------------------------------------------------------
 
 /// Load custom modules
-@use "../abstracts/" as a;
+@use '../abstracts' as a;
 
 /**
  * Clear inner floats
  */
 .clearfix::after {
   clear: both;
-  content: "";
+  content: '';
   display: table;
 }
 

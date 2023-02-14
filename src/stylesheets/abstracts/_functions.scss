@@ -3,11 +3,11 @@
 // -----------------------------------------------------------------------------
 
 /// Load Sass built-in modules
-@use "sass:color";
+@use 'sass:color';
 
 /// Load custom modules
-@use "./variables" as v;
-@use "../themes/" as t;
+@use 'variables' as v;
+@use '../themes' as t;
 
 /// Native `url(..)` function wrapper
 /// @param {String} $base - base URL for the asset
@@ -24,7 +24,7 @@
 /// @return {Url}
 /// @require $base-url
 @function image($path, $base: v.$base-url) {
-  @return asset($base, "images/", $path);
+  @return asset($base, 'images/', $path);
 }
 
 /// Returns URL to a font based on its path
@@ -33,7 +33,7 @@
 /// @return {Url}
 /// @require $base-url
 @function font($path, $base: v.$base-url) {
-  @return asset($base, "fonts/", $path);
+  @return asset($base, 'fonts/', $path);
 }
 
 /// Returns font size from the text-settings table
@@ -41,7 +41,7 @@
 /// @return {String}
 /// @require $text-settings
 @function text-scale($size) {
-  @return map-get(map-get(v.$text-settings, $size), "font-size");
+  @return map-get(map-get(v.$text-settings, $size), 'font-size');
 }
 
 /// Returns line height from the text-settings table
@@ -49,7 +49,7 @@
 /// @return {Number}
 /// @require $text-settings
 @function line-height($size) {
-  @return map-get(map-get(v.$text-settings, $size), "line-height");
+  @return map-get(map-get(v.$text-settings, $size), 'line-height');
 }
 
 /// Returns color from the theme-colors table
@@ -58,7 +58,7 @@
 /// @param {Number} $alpha [0] - transparency
 /// @return {Color}
 /// @require $theme-colors
-@function theme-color($key: "primary", $variant: "base", $alpha: 0) {
+@function theme-color($key: 'primary', $variant: 'base', $alpha: 0) {
   $map: map-get(t.$theme-colors, $key);
   @return color.adjust(map-get($map, $variant), $alpha: $alpha);
 }

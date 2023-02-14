@@ -2,7 +2,7 @@
 // This file contains all styles related to the logo component.
 // -----------------------------------------------------------------------------
 
-@use '../abstracts/' as a;
+@use '../abstracts' as a;
 
 .logo {
   display: flex;
@@ -11,7 +11,7 @@
   gap: 1rem;
 
   .logo_icon {
-    background-image: url('./logo.svg');
+    background-image: url('images/logo.svg');
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;

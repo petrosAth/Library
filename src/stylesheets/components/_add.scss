@@ -2,8 +2,8 @@
 // This file contains all styles related to the add book button component.
 // -----------------------------------------------------------------------------
 
-@use '../abstracts/' as a;
-@use '../themes/' as t;
+@use '../abstracts' as a;
+@use '../themes' as t;
 
 .add-dialog {
   position: relative;
@@ -34,7 +34,7 @@
 
       &__close-button {
         border-radius: 1.5rem;
-        background-image: url('./delete-red.svg');
+        background-image: url('images/delete-red.svg');
         background-size: contain;
         background-repeat: no-repeat;
         background-position: top;

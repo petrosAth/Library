@@ -3,11 +3,11 @@
 // -----------------------------------------------------------------------------
 
 /// Load Sass built-in modules
-@use "sass:list";
+@use 'sass:list';
 
 /// Load custom modules
-@use "./variables" as v;
-@use "./functions" as f;
+@use 'variables' as v;
+@use 'functions' as f;
 
 /// Event wrapper
 /// @author Harry Roberts

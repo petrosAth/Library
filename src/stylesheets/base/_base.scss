@@ -3,7 +3,7 @@
 // -----------------------------------------------------------------------------
 
 /// Load custom modules
-@use '../abstracts/' as a;
+@use '../abstracts' as a;
 
 /**
  * Set up a decent box model on the root element

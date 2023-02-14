@@ -2,8 +2,8 @@
 // This file contains all styles related to the header of the site/application.
 // -----------------------------------------------------------------------------
 
-@use '../abstracts/' as a;
-@use '../themes/' as t;
+@use '../abstracts' as a;
+@use '../themes' as t;
 
 .header {
   display: flex;
