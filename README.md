@@ -8,8 +8,8 @@ status between read or unread.
 
 - `HTML`
 - `SCSS`: Used for styling utilizing the 7-1 file structure
-- `JavaScript`: Used JavaScript object to store book info and an array to
-  simulate a library
+- `JavaScript`: Used JavaScript ~~Object~~ Class to store book info and an Array
+  to simulate a library
 
 ## Tools
 
