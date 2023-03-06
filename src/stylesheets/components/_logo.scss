@@ -10,7 +10,7 @@
   align-items: center;
   gap: 1rem;
 
-  .logo_icon {
+  .logo__icon {
     background-image: url('images/logo.svg');
     background-size: contain;
     background-repeat: no-repeat;
@@ -19,7 +19,7 @@
     height: 3.5rem;
   }
 
-  .logo_text {
+  .logo__text {
     h1 {
       font-family: 'Roboto Condensed';
       @include a.text-setting(800);
