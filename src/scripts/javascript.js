@@ -1,6 +1,6 @@
 const myLibrary = [];
 
-function Book(index, title, author, pages, is_read = false) {
+/* function Book(index, title, author, pages, is_read = false) {
   this.index = index;
   this.title = title;
   this.author = author;
@@ -10,6 +10,16 @@ function Book(index, title, author, pages, is_read = false) {
     let read = this.is_read ? 'have read it' : 'not read yet';
     return `${title} by ${author}, ${pages} pages, ${read}`;
   };
+} */
+
+class Book {
+  constructor(index, title, author, pages, is_read) {
+    this.index = index;
+    this.title = title;
+    this.author = author;
+    this.pages = pages;
+    this.is_read = is_read;
+  }
 }
 
 function CreateBookChildElement(element, classes, info, index) {
